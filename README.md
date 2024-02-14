@@ -15,7 +15,7 @@ https://arxiv.org/abs/2306.00637
 https://stability.ai/news/introducing-stable-cascade
 
 ### 🖼 Output
-
+![Screenshot 2024-02-14 042925](https://github.com/camenduru/stable-cascade-replicate/assets/54370274/6020d687-6c35-4328-ba87-72171b0ad3d5)
 
 ### 🏢 Sponsor
 https://replicate.com
