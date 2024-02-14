@@ -1,0 +1,13 @@
+build:
+  gpu: false
+  python_version: "3.10"
+  run:
+    - apt update -y && apt install -y software-properties-common python3-launchpadlib && apt update -y && add-apt-repository -y ppa:git-core/ppa && apt update -y
+    - apt install -y gcc g++ aria2 git git-lfs wget libgl1 libglib2.0-0 ffmpeg cmake libgtk2.0-0 libopenmpi-dev
+    - pip install torch==2.2.0+cu121 torchvision==0.17.0+cu121 torchaudio==2.2.0+cu121 --extra-index-url https://download.pytorch.org/whl/cu121 -U
+    - pip install notebook pyngrok pickleshare ipywidgets imageio-ffmpeg pandas numpy==1.23.5 ninja accelerate transformers
+    - pip install git+https://github.com/kashif/diffusers.git@diffusers-yield-callback -U
+    - GIT_LFS_SKIP_SMUDGE=1 git clone -b dev https://github.com/camenduru/stable-cascade-hf /content/stable-cascade-hf
+    - aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/spaces/multimodalart/stable-cascade/resolve/main/previewer/previewer_v1_100k.pt -d /content/stable-cascade-hf/previewer -o previewer_v1_100k.pt
+    - aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/spaces/multimodalart/stable-cascade/resolve/main/previewer/text2img_wurstchen_b_v1_previewer_100k.pt -d /content/stable-cascade-hf/previewer -o text2img_wurstchen_b_v1_previewer_100k.pt
+predict: "/src/predict.py:Predictor"
