@@ -3,7 +3,7 @@
 🥳 Please join my patreon community https://patreon.com/camenduru <br />
 
 ### 🕸 Replicate
-https://replicate.com/camenduru/ml-mgie
+https://replicate.com/camenduru/stable-cascade
 
 ### 🧬 Code
 https://github.com/Stability-AI/StableCascade
